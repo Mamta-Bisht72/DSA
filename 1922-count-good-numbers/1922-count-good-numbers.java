@@ -11,8 +11,8 @@ class Solution {
        if(p==0)
            return 1;
         if(p%2==0)
-            return (pow((a*a)%m,p/2));
-        else
-            return (a*pow((a*a)%m,(p-1)/2))%m;
+            return (pow((a*a)%m,p/2)); 
+       else 
+           return (a*pow((a*a)%m,(p-1)/2))%m; 
     }
 }
