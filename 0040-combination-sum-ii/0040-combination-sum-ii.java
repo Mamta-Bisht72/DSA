@@ -24,6 +24,8 @@ class Solution {
     {
         if(i>ind && candidates[i]==candidates[i-1])
             continue;
+        if(rem-candidates[i]<0)
+            break;
         clist.add(candidates[i]);
         combinations(candidates,clist,i+1,rem-candidates[i]);
         clist.remove(clist.size()-1);      
