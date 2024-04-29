@@ -1,29 +1,31 @@
 class Solution {
-    List<List<Integer>> outputlist;
+            List<List<Integer>> unique=new ArrayList();
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        outputlist=new ArrayList();
-        List<Integer> sumlist=new ArrayList();
-        int ind=0;
-        int sum=0;
-        sumset(sumlist,candidates,target,ind,sum);
-        return outputlist;
+        List<Integer> subset=new ArrayList();
+        generateSubset(0,candidates,target,subset,0);
+        return unique;
+        
         
     }
-    public void sumset(List<Integer>sumlist,int[] candidates, int target,int ind,int sum)
+    
+   public void generateSubset(int ind,int[] candidates,int target,List<Integer> subset,int sum)
     {
         if(ind>candidates.length-1 || sum>target)
             return;
         if(sum==target)
         {
-            outputlist.add(new ArrayList<Integer>(sumlist));
+            unique.add(new ArrayList<Integer>(subset));
             return;
         }
-        sum+=candidates[ind];
-        sumlist.add(candidates[ind]);
-        sumset(sumlist,candidates,target,ind,sum);
-        sumlist.remove(sumlist.size()-1);
+        subset.add(candidates[ind]);
+        sum=sum+candidates[ind];
+        generateSubset(ind,candidates,target,subset,sum);
+        subset.remove(subset.size()-1);
         sum-=candidates[ind];
-        sumset(sumlist,candidates,target,ind+1,sum);    
+        generateSubset(ind+1,candidates,target,subset,sum);
+        
+        
         
     }
+
 }
