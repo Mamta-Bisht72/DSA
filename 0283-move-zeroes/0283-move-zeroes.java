@@ -12,6 +12,9 @@ class Solution {
                 i++;
                 j++;
                 // 1 1 0 3 12 
+                //0 1
+                // 1 0/1
+                // 0 0 1 2 3 
             }
             else if(nums[i]!=0)
             {
